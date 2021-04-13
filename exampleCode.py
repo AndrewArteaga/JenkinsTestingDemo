@@ -1,7 +1,7 @@
 #  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  File name  :  warmup.py
 #  Purpose    :  Warming up to Python with a virtual environment
-#  @author    :  Andrew Arteaga, Kevin Patterson, Jimmy Bynre
+#  @author    :  Andrew Arteaga,
 #  Date       :  2018-09-18
 #  Description:  Homework 2 for CMSI-386
 #  Notes      :  None
