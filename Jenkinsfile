@@ -1,34 +1,22 @@
 pipeline {
-    agent any 
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000 -p 5000:5000' 
+        }
+    }
+    environment {
+        CI = 'true'
+    }
     stages {
-        stage('Static Analysis') {
+        stage('Build') {
             steps {
-                echo 'Run the static analysis to the code' 
+                sh 'npm install'
             }
         }
-        stage('Compile') {
+        stage('Test') {
             steps {
-                echo 'Compile the source code' 
-            }
-        }
-        stage('Security Check') {
-            steps {
-                echo 'Run the security check against the application' 
-            }
-        }
-        stage('Run Unit Tests') {
-            steps {
-                echo 'Run unit tests from the source code' 
-            }
-        }
-        stage('Run Integration Tests') {
-            steps {
-                echo 'Run only crucial integration tests from the source code' 
-            }
-        }
-        stage('Publish Artifacts') {
-            steps {
-                echo 'Save the assemblies generated from the compilation' 
+                sh './jenkins/scripts/test.sh'
             }
         }
     }
